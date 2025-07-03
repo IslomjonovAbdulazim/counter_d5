@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isDark ? Color(0xff141414) : Colors.white,
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Center(
@@ -38,6 +40,35 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white.withOpacity(.7),
                           borderRadius: BorderRadius.circular(12),
                         ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          SizedBox(width: 80),
+                          CupertinoButton(
+                            color: Color(0xff603913),
+                            borderRadius: BorderRadius.circular(100),
+                            onPressed: () {
+                              isDark = !isDark;
+                              setState(() {});
+                            },
+                            child: Icon(
+                              Icons.dark_mode,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Spacer(),
+                          CupertinoButton(
+                            color: Color(0xff603913),
+                            borderRadius: BorderRadius.circular(100),
+                            onPressed: () {},
+                            child: Icon(
+                              Icons.dark_mode,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(width: 80),
+                        ],
                       ),
                     ],
                   ),
