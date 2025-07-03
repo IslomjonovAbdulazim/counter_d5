@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,9 +37,17 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         height: 80,
                         width: 250,
+                        padding: EdgeInsets.symmetric(horizontal: 6),
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(.7),
                           borderRadius: BorderRadius.circular(12),
+                        ),
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "$counter",
+                          style: TextStyle(
+                            fontSize: 50,
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -53,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                               setState(() {});
                             },
                             child: Icon(
-                              Icons.dark_mode,
+                              isDark ? Icons.light_mode : Icons.dark_mode,
                               color: Colors.white,
                             ),
                           ),
@@ -69,6 +78,16 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(width: 80),
                         ],
+                      ),
+                      CupertinoButton(
+                        color: Color(0xff603913),
+                        borderRadius: BorderRadius.circular(100),
+                        onPressed: () {
+                          counter++;
+                          HapticFeedback.mediumImpact();
+                          setState(() {});
+                        },
+                        child: SizedBox(height: 100, width: 100),
                       ),
                     ],
                   ),
