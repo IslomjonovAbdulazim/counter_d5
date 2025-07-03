@@ -32,11 +32,15 @@ class _HwPageState extends State<HwPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       CupertinoButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (counter1 == 0) return;
+                          counter1--;
+                          setState(() {});
+                        },
                         color: Color(0xffA221FF),
                         borderRadius: BorderRadius.circular(0),
                         child: Icon(
-                          CupertinoIcons.add,
+                          CupertinoIcons.minus,
                           size: 30,
                           color: Colors.white,
                         ),
@@ -46,7 +50,20 @@ class _HwPageState extends State<HwPage> {
                         "$counter1",
                         style: TextStyle(fontSize: 40),
                       ),
-
+                      SizedBox(width: 20),
+                      CupertinoButton(
+                        onPressed: () {
+                          counter1++;
+                          setState(() {});
+                        },
+                        color: Color(0xffA221FF),
+                        borderRadius: BorderRadius.circular(0),
+                        child: Icon(
+                          CupertinoIcons.add,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),
