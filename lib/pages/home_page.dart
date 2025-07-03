@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff603913),
                         borderRadius: BorderRadius.circular(100),
                         onPressed: () {
-                          counter++;
+                          counter += 1;
                           HapticFeedback.mediumImpact();
                           setState(() {});
                         },
